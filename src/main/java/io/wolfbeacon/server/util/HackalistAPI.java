@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -47,7 +48,7 @@ public class HackalistAPI {
     HackathonDAO hackathonDAO;
 
     //google_server_api_key OR google_server_api_key_test, both work everywhere. switch to _test if you exceed API limit
-    @Value("${google_server_api_key}")
+    @Value("${google_server_api_key_test}")
     private String GOOGLE_API_SERVER_KEY;
 
     private MonthUtils monthUtils = new MonthUtils();
@@ -60,6 +61,7 @@ public class HackalistAPI {
      * Sweep the API endpoints from the start and update DB
      */
 
+    @Async
     @Scheduled(initialDelay = 1000, fixedDelay = 21600000)
     public void updateHackalistHackathonData() {
         //Default Start dates of the hackalist API

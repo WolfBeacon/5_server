@@ -13,10 +13,10 @@ import java.util.Map;
 
 public class CoordinateComparator implements Comparator<Hackathon> {
 
-    private double lat1, lon1;
+    private Double lat1, lon1;
     private Map<Long, Double> memoDistances;
 
-    public CoordinateComparator(double lat1, double lon1) {
+    public CoordinateComparator(Double lat1, Double lon1) {
         this.lat1 = lat1;
         this.lon1 = lon1;
         memoDistances = new HashMap<>();
@@ -30,13 +30,23 @@ public class CoordinateComparator implements Comparator<Hackathon> {
         if (!memoDistances.containsKey(h2.getId())) {
             memoDistances.put(h2.getId(), distance(h2.getLatitude(), h2.getLongitude()));
         }
+        if (memoDistances.get(h1.getId()) == null && memoDistances.get(h2.getId()) == null) {
+            return 0;
+        } else if (memoDistances.get(h1.getId()) == null) {
+            return -1;
+        } else if(memoDistances.get(h2.getId()) == null) {
+            return 1;
+        }
         return Double.compare(memoDistances.get(h1.getId()), memoDistances.get(h2.getId()));
     }
 
     //http://www.geodatasource.com/
-    private double distance(double lat2, double lon2) {
-        double theta = lon1 - lon2;
-        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+    private Double distance(Double lat2, Double lon2) {
+        if (lat2 == null || lon2 == null) {
+            return null;
+        }
+        Double theta = lon1 - lon2;
+        Double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
         dist = Math.acos(dist);
         dist = rad2deg(dist);
         dist = dist * 60 * 1.1515;
@@ -44,11 +54,11 @@ public class CoordinateComparator implements Comparator<Hackathon> {
         return (dist);
     }
 
-    private double deg2rad(double deg) {
+    private Double deg2rad(Double deg) {
         return (deg * Math.PI / 180.0);
     }
 
-    private double rad2deg(double rad) {
+    private Double rad2deg(Double rad) {
         return (rad * 180 / Math.PI);
     }
 
