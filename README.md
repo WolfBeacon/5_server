@@ -4,6 +4,8 @@
 
 ##Using the API
 
+#####Note: OAuth2 authentication required. Login from `/oauth2callback` to make API calls.
+
 ###Hackathon Endpoint
 `/api/v1/hackathon/list`
 
