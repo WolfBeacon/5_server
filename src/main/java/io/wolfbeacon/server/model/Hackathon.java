@@ -1,40 +1,135 @@
 package io.wolfbeacon.server.model;
 
-import javax.persistence.*;
-import java.sql.Timestamp;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-/**
- * Created by Aaron on 10/06/2016.
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Date;
+import java.util.Objects;
+
 @Entity
-@Table(name = "hackathon_events")
-public class Hackathon implements DomainModel<Long>{
+@Table(name = "hackathon")
+public class Hackathon implements io.wolfbeacon.server.model.DomainModel<Long> {
 
-    public enum Status {
+    public Hackathon() {
+
+    }
+
+    public Hackathon(Long id, String title, String eventLink, Date startDate, Date endDate, Date lastUpdatedDate, Integer year, String location, String host, Integer length, String size, Boolean travel, Boolean prize, Boolean highSchoolers, String cost, String facebookLink, String twitterLink, String googlePlusLink, String imageLink, Double latitude, Double longitude, String notes) {
+        this.id = id;
+        this.title = title;
+        this.eventLink = eventLink;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.lastUpdatedDate = lastUpdatedDate;
+        this.year = year;
+        this.location = location;
+        this.host = host;
+        this.length = length;
+        this.size = size;
+        this.travel = travel;
+        this.prize = prize;
+        this.highSchoolers = highSchoolers;
+        this.cost = cost;
+        this.facebookLink = facebookLink;
+        this.twitterLink = twitterLink;
+        this.googlePlusLink = googlePlusLink;
+        this.imageLink = imageLink;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.notes = notes;
     }
 
     @Id
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "creatorId", nullable = false)
-    private User creator;
-    private String name;
-    private Timestamp createdAt;
-    private Timestamp lastUpdatedAt;
-    private Timestamp eventDate;
-    @Enumerated(EnumType.STRING)
-    private Status eventStatus;
-    private String eventAddress;
-    private String city;
-    private String state;
-    private String zip;
-    private String country;
-    private String eventPictureUrl;
+    @Column(name = "title", nullable = false)
+    private String title;
+    @Column(name = "event_link", nullable = false)
+    private String eventLink;
+    @Column(name = "start_date", nullable = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date startDate;
+    @Column(name = "end_date", nullable = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date endDate;
+    @Column(name = "last_updated_date")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+    private Date lastUpdatedDate;
+    @Column(name = "year", nullable = false)
+    private Integer year;
+    @Column(name = "location", nullable = false)
+    private String location;
+    @Column(name = "host", nullable = false)
+    private String host;
+    @Column(name = "length")
+    private Integer length;
+    @Column(name = "size")
+    private String size;
+    @Column(name = "travel")
+    private Boolean travel;
+    @Column(name = "prize")
+    private Boolean prize;
+    @Column(name = "high_schoolers")
+    private Boolean highSchoolers;
+    @Column(name = "cost")
+    private String cost;
+    @Column(name = "facebook_link")
+    private String facebookLink;
+    @Column(name = "twitter_link")
+    private String twitterLink;
+    @Column(name = "gplus_link")
+    private String googlePlusLink;
+    @Column(name = "image_link")
+    private String imageLink;
+    @Column(name = "latitude")
+    private Double latitude;
+    @Column(name = "longitude")
+    private Double longitude;
+    @Column(name = "notes")
+    private String notes;
 
 
-    public Hackathon() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Hackathon hackathon = (Hackathon) o;
+        return Objects.equals(id, hackathon.id) &&
+                Objects.equals(title, hackathon.title) &&
+                Objects.equals(eventLink, hackathon.eventLink) &&
+                Objects.equals(startDate, hackathon.startDate) &&
+                Objects.equals(endDate, hackathon.endDate) &&
+                Objects.equals(lastUpdatedDate, hackathon.lastUpdatedDate) &&
+                Objects.equals(year, hackathon.year) &&
+                Objects.equals(location, hackathon.location) &&
+                Objects.equals(host, hackathon.host) &&
+                Objects.equals(length, hackathon.length) &&
+                Objects.equals(size, hackathon.size) &&
+                Objects.equals(travel, hackathon.travel) &&
+                Objects.equals(prize, hackathon.prize) &&
+                Objects.equals(highSchoolers, hackathon.highSchoolers) &&
+                Objects.equals(cost, hackathon.cost) &&
+                Objects.equals(facebookLink, hackathon.facebookLink) &&
+                Objects.equals(twitterLink, hackathon.twitterLink) &&
+                Objects.equals(googlePlusLink, hackathon.googlePlusLink) &&
+                Objects.equals(imageLink, hackathon.imageLink) &&
+                Objects.equals(latitude, hackathon.latitude) &&
+                Objects.equals(longitude, hackathon.longitude) &&
+                Objects.equals(notes, hackathon.notes);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, eventLink, startDate, endDate, lastUpdatedDate, year, location, host, length, size, travel, prize, highSchoolers, cost, facebookLink, twitterLink, googlePlusLink, imageLink, latitude, longitude, notes);
+    }
+
+    @Override
     public Long getId() {
         return id;
     }
@@ -43,163 +138,171 @@ public class Hackathon implements DomainModel<Long>{
         this.id = id;
     }
 
-    public User getCreator() {
-        return creator;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCreator(User creator) {
-        this.creator = creator;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getName() {
-        return name;
+    public String getEventLink() {
+        return eventLink;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEventLink(String eventLink) {
+        this.eventLink = eventLink;
     }
 
-    public Timestamp getCreatedAt() {
-        return createdAt;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public Timestamp getLastUpdatedAt() {
-        return lastUpdatedAt;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setLastUpdatedAt(Timestamp lastUpdatedAt) {
-        this.lastUpdatedAt = lastUpdatedAt;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
-    public Timestamp getEventDate() {
-        return eventDate;
+    public Date getLastUpdatedDate() {
+        return lastUpdatedDate;
     }
 
-    public void setEventDate(Timestamp eventDate) {
-        this.eventDate = eventDate;
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
     }
 
-    public Status getEventStatus() {
-        return eventStatus;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setEventStatus(Status eventStatus) {
-        this.eventStatus = eventStatus;
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
-    public String getEventAddress() {
-        return eventAddress;
+    public String getLocation() {
+        return location;
     }
 
-    public void setEventAddress(String eventAddress) {
-        this.eventAddress = eventAddress;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getCity() {
-        return city;
+    public String getHost() {
+        return host;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setHost(String host) {
+        this.host = host;
     }
 
-    public String getState() {
-        return state;
+    public Integer getLength() {
+        return length;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setLength(Integer length) {
+        this.length = length;
     }
 
-    public String getZip() {
-        return zip;
+    public String getSize() {
+        return size;
     }
 
-    public void setZip(String zip) {
-        this.zip = zip;
+    public void setSize(String size) {
+        this.size = size;
     }
 
-    public String getCountry() {
-        return country;
+    public Boolean getTravel() {
+        return travel;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setTravel(Boolean travel) {
+        this.travel = travel;
     }
 
-    public String getEventPictureUrl() {
-        return eventPictureUrl;
+    public Boolean getPrize() {
+        return prize;
     }
 
-    public void setEventPictureUrl(String eventPictureUrl) {
-        this.eventPictureUrl = eventPictureUrl;
+    public void setPrize(Boolean prize) {
+        this.prize = prize;
     }
 
-    @Override
-    public String toString() {
-        return "Hackathon{" +
-                "id=" + id +
-                ", creator=" + creator +
-                ", name='" + name + '\'' +
-                ", createdAt=" + createdAt +
-                ", lastUpdatedAt=" + lastUpdatedAt +
-                ", eventDate=" + eventDate +
-                ", eventStatus=" + eventStatus +
-                ", eventAddress='" + eventAddress + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zip='" + zip + '\'' +
-                ", country='" + country + '\'' +
-                ", eventPictureUrl='" + eventPictureUrl + '\'' +
-                '}';
+    public Boolean getHighSchoolers() {
+        return highSchoolers;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Hackathon that = (Hackathon) o;
-
-        if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
-        if (getCreator() != null ? !getCreator().equals(that.getCreator()) : that.getCreator() != null) return false;
-        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
-        if (getCreatedAt() != null ? !getCreatedAt().equals(that.getCreatedAt()) : that.getCreatedAt() != null)
-            return false;
-        if (getLastUpdatedAt() != null ? !getLastUpdatedAt().equals(that.getLastUpdatedAt()) : that.getLastUpdatedAt() != null)
-            return false;
-        if (getEventDate() != null ? !getEventDate().equals(that.getEventDate()) : that.getEventDate() != null)
-            return false;
-        if (getEventStatus() != that.getEventStatus()) return false;
-        if (getEventAddress() != null ? !getEventAddress().equals(that.getEventAddress()) : that.getEventAddress() != null)
-            return false;
-        if (getCity() != null ? !getCity().equals(that.getCity()) : that.getCity() != null) return false;
-        if (getState() != null ? !getState().equals(that.getState()) : that.getState() != null) return false;
-        if (getZip() != null ? !getZip().equals(that.getZip()) : that.getZip() != null) return false;
-        if (getCountry() != null ? !getCountry().equals(that.getCountry()) : that.getCountry() != null) return false;
-        return getEventPictureUrl() != null ? getEventPictureUrl().equals(that.getEventPictureUrl()) : that.getEventPictureUrl() == null;
-
+    public void setHighSchoolers(Boolean highSchoolers) {
+        this.highSchoolers = highSchoolers;
     }
 
-    @Override
-    public int hashCode() {
-        int result = getId() != null ? getId().hashCode() : 0;
-        result = 31 * result + (getCreator() != null ? getCreator().hashCode() : 0);
-        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-        result = 31 * result + (getCreatedAt() != null ? getCreatedAt().hashCode() : 0);
-        result = 31 * result + (getLastUpdatedAt() != null ? getLastUpdatedAt().hashCode() : 0);
-        result = 31 * result + (getEventDate() != null ? getEventDate().hashCode() : 0);
-        result = 31 * result + (getEventStatus() != null ? getEventStatus().hashCode() : 0);
-        result = 31 * result + (getEventAddress() != null ? getEventAddress().hashCode() : 0);
-        result = 31 * result + (getCity() != null ? getCity().hashCode() : 0);
-        result = 31 * result + (getState() != null ? getState().hashCode() : 0);
-        result = 31 * result + (getZip() != null ? getZip().hashCode() : 0);
-        result = 31 * result + (getCountry() != null ? getCountry().hashCode() : 0);
-        result = 31 * result + (getEventPictureUrl() != null ? getEventPictureUrl().hashCode() : 0);
-        return result;
+    public String getCost() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost;
+    }
+
+    public String getFacebookLink() {
+        return facebookLink;
+    }
+
+    public void setFacebookLink(String facebookLink) {
+        this.facebookLink = facebookLink;
+    }
+
+    public String getTwitterLink() {
+        return twitterLink;
+    }
+
+    public void setTwitterLink(String twitterLink) {
+        this.twitterLink = twitterLink;
+    }
+
+    public String getGooglePlusLink() {
+        return googlePlusLink;
+    }
+
+    public void setGooglePlusLink(String googlePlusLink) {
+        this.googlePlusLink = googlePlusLink;
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

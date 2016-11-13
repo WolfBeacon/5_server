@@ -10,6 +10,7 @@ import org.pac4j.core.profile.CommonProfile;
 import org.pac4j.core.util.CommonHelper;
 import org.pac4j.jwt.JwtConstants;
 import org.pac4j.jwt.profile.JwtGenerator;
+import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -19,6 +20,8 @@ import java.util.Map;
 /**
  * Created by Aaron on 22/04/2016.
  */
+
+@Component
 public class TimedJwtGenerator<U extends CommonProfile> extends JwtGenerator<U> {
 
     public static final int LONG_ACCESS_TOKEN_TIME = 750;

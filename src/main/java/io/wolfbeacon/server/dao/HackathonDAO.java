@@ -2,8 +2,9 @@ package io.wolfbeacon.server.dao;
 
 import io.wolfbeacon.server.model.Hackathon;
 
-/**
- * Created by Aaron on 10/06/2016.
- */
-public interface HackathonDAO extends GenericDAO<Hackathon, Long>{
+import java.util.Date;
+import java.util.List;
+
+public interface HackathonDAO extends GenericDAO<Hackathon, Long> {
+    List<Hackathon> queryHackathonsBetweenDates(Date startDate, Date endDate, String sortBy, Integer count);
 }
