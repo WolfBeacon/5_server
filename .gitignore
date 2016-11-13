@@ -6,3 +6,4 @@
 target/
 .idea/
 .fuse_hidden*
+/local config files/
