@@ -17,7 +17,7 @@ CREATE TABLE accounts_permissions (accountId int(10) NOT NULL,
 
 CREATE TABLE mailing_list (id int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                            emailAddress varchar(254) NOT NULL UNIQUE,
-                           name varchar(90));
+                           title varchar(90));
 
 CREATE TABLE users (
   id int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -25,28 +25,36 @@ CREATE TABLE users (
   lastUpdatedAt timestamp NULL DEFAULT NULL
 );
 
-CREATE TABLE hackathon_events (
-  id int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  creatorId int(10) NOT NULL,
-  name text,
-  createdAt timestamp,
-  lastUpdatedAt timestamp NULL DEFAULT NULL,
-  eventDate timestamp,
-  eventStatus int(1),
-  eventAddress text,
-  city varchar(50),
-  state varchar(45),
-  zip varchar(8),
-  country varchar(45),
-  eventPictureUrl text,
-  CONSTRAINT hackathon_events_users__fk FOREIGN KEY (creatorId) REFERENCES users(id)
+CREATE TABLE hackathon
+(
+    id BIGINT(20) PRIMARY KEY NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    last_updated_date DATE,
+    year YEAR(4) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    host VARCHAR(255),
+    length INT(10),
+    travel TINYINT(1),
+    prize TINYINT(1),
+    high_schoolers TINYINT(1),
+    cost VARCHAR(255),
+    facebook_link TEXT,
+    twitter_link TEXT,
+    gplus_link TEXT,
+    image_link TEXT,
+    notes BLOB,
+    event_link TEXT,
+    latitude DOUBLE,
+    longitude DOUBLE,
+    size VARCHAR(255)
 );
 
 CREATE TABLE attending_status (
   userId int(10),
   eventId int(10),
   attendingStatus int(1),
-  CONSTRAINT attending_status_events__fk FOREIGN KEY (eventId) REFERENCES hackathon_events(id),
   CONSTRAINT attending_status_users__fk FOREIGN KEY (userId) REFERENCES users(id)
 );
 
