@@ -9,6 +9,8 @@
 ###Hackathon Endpoint
 `/api/v1/hackathon/list`
 
+*Updated every 6 hours from the [Hackalist API](www.hackalist.org)*
+
 #####Parameters:
 * `start-date` (*yyyy-MM-dd*): Returns all the hackathons *after* this date. Eg: *start-date=2015-10-10*
 
@@ -18,7 +20,41 @@
 
  * `distance` (*latitude, longitude*): *sort-by=distance&latitude=19.1231&longitude=45.1231`*
 
-#####Complete Example: `/api/v1/hackathon/list?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002`
+
+#####Output Example:
+```
+{
+  ...
+    {
+    "id": 20160916552226390,
+    "title": "Hack the North",
+    "eventLink": "https://hackthenorth.com/",
+    "startDate": "2016-09-15",
+    "endDate": "2016-09-17",
+    "lastUpdatedDate": "2016-11-13T00:00:00.000+0000",
+    "year": 2016,
+    "location": "Waterloo, ON, Canada",
+    "host": "Hack the North",
+    "length": 36,
+    "size": "1000",
+    "travel": true,
+    "prize": true,
+    "highSchoolers": true,
+    "cost": "free",
+    "facebookLink": "https://www.facebook.com/hackthenorth",
+    "twitterLink": "https://twitter.com/hackthenorth",
+    "googlePlusLink": "",
+    "imageLink": "https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/13501875_1423460301013883_426092165374437510_n.png?oh=23ff635c68eee2faa74b376adc7982fd&oe=58CE1F88",
+    "latitude": 43.4642578,
+    "longitude": -80.5204096,
+    "notes": ""
+    },
+  ...
+}
+```
+
+
+#####Complete Example: [https://wolfbeacon.herokuapp.com/api/v1/hackathon/list?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002](https://wolfbeacon.herokuapp.com/api/v1/hackathon/list?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002)
 
 
 ##Setting up locally:

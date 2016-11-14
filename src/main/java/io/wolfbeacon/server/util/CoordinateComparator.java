@@ -30,20 +30,13 @@ public class CoordinateComparator implements Comparator<Hackathon> {
         if (!memoDistances.containsKey(h2.getId())) {
             memoDistances.put(h2.getId(), distance(h2.getLatitude(), h2.getLongitude()));
         }
-        if (memoDistances.get(h1.getId()) == null && memoDistances.get(h2.getId()) == null) {
-            return 0;
-        } else if (memoDistances.get(h1.getId()) == null) {
-            return -1;
-        } else if(memoDistances.get(h2.getId()) == null) {
-            return 1;
-        }
         return Double.compare(memoDistances.get(h1.getId()), memoDistances.get(h2.getId()));
     }
 
     //http://www.geodatasource.com/
     private Double distance(Double lat2, Double lon2) {
         if (lat2 == null || lon2 == null) {
-            return null;
+            return (double)Integer.MAX_VALUE;
         }
         Double theta = lon1 - lon2;
         Double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
