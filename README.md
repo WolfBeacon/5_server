@@ -9,7 +9,7 @@
 ###Hackathon Endpoint
 `/api/v1/hackathon/list`
 
-*Updated every 6 hours from the [Hackalist API](www.hackalist.org)*
+*Updated every 6 hours from [Hackalist](www.hackalist.org)*
 
 #####Parameters:
 * `start-date` (*yyyy-MM-dd*): Returns all the hackathons *after* this date. Eg: *start-date=2015-10-10*
@@ -20,8 +20,9 @@
 
  * `distance` (*latitude, longitude*): *sort-by=distance&latitude=19.1231&longitude=45.1231`*
 
+#####Example: [https://wolfbeacon.herokuapp.com/api/v1/hackathon/list?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002](https://wolfbeacon.herokuapp.com/api/v1/hackathon/list?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002)
 
-#####Output Example:
+#####Output:
 ```
 {
   ...
@@ -54,9 +55,6 @@
 ```
 
 
-#####Complete Example: [https://wolfbeacon.herokuapp.com/api/v1/hackathon/list?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002](https://wolfbeacon.herokuapp.com/api/v1/hackathon/list?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002)
-
-
 ##Setting up locally:
 
 ####Dependencies: [Java 8](https://www.java.com/en/download/), [MySQL](http://dev.mysql.com/doc/refman/5.7/en/installing.html), [Maven](https://maven.apache.org/download.cgi).
@@ -65,8 +63,7 @@
 * Download the configuration files and place them in `src/main/resources`. Change the configuration in *application.properties* and the path to the '.p12' file in *gitkit-server-config.json*
 
 * Building and installing: `
-mvn jetty:run -Dorg.eclipse.jetty.annotations.maxWait=120
-git update-index --assume-unchanged`
+mvn jetty:run -Dorg.eclipse.jetty.annotations.maxWait=120`
 
 
 #####[Server Configuration Files](https://www.dropbox.com/s/hlr83gg9nn0t78b/wolfbeacon_5_server_config_files_priviliged.tar.gz?dl=0) (Only available to privileged members. Contact Wolfbeacon admin for info)
