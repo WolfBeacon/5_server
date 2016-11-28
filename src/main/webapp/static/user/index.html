@@ -1,22 +1,119 @@
 <!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link type=text/css rel=stylesheet href="//www.gstatic.com/authtoolkit/css/gitkit.css"/>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content=" ">
+    <meta name="description" content=" ">
+    <meta name="title" content="WolfBeacon || OSH">
+    <meta name="url" content=" ">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:description" content=" ">
+    <meta property="og:image" content="/">
+    <meta property="og:site_name" content=" ">
+    <meta property="og:title" content=" ">
+    <meta property="og:type" content=" ">
+    <meta property="og:url" content=" ">
+    <meta name="twitter:card" content=" ">
+    <meta name="twitter:url" content=" ">
+    <meta name="twitter:title" content=" ">
+    <meta name="twitter:description" content=" ">
+    <meta name="twitter:image" content="/">
+
+    <!--Include-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link type=text/css rel=stylesheet href="//www.gstatic.com/authtoolkit/css/gitkit.css"/>
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/img/favicon/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/img/favicon/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/img/favicon/apple-touch-icon-152x152.png"/>
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-16x16.png" sizes="16x16"/>
+    <meta name="application-name" content=" "/>
+    <meta name="msapplication-TileColor" content="#EF5350"/>
+    <meta name="msapplication-TileImage" content="/assets/img/favicon/mstile-144x144.png"/>
+    <title> Wolfbeacon User </title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+<section class="cover">
+    <div class="container">
+        <div class="logo">
+            <span class="wolfbeacon-title">Hello Wolfbeacon User!</span>
+            <span id="login-bar">
+                <!--Insert-->
+            </span>
+
+        </div>
+        <div class="title">
+            <h1>The Ultimate Platform for Hackathons</h1>
+            <h2>A beautiful, mobile-first platform. Built by hackers, for hackers.</h2>
+        </div>
+        <div class="phones"><img src="/assets/img/mobiles.png" alt="Previews of WolfBeacon mobile apps"></div>
+    </div>
+</section>
+<section class="features">
+    <div class="container">
+        <div class="featureContainer"><img src="/assets/img/features/globe.png" alt="Global" class="featureImg">
+            <h3 class="featureTitle">Global</h3>
+            <h4 class="featureText">View all hackathons happening across the world. Never miss a hackathon again.</h4>
+        </div>
+        <div class="featureContainer"><img src="/assets/img/features/iphone.png" alt="Mobile First" class="featureImg">
+            <h3 class="featureTitle">Mobile First</h3>
+            <h4 class="featureText">The world's very first hackathon platform on mobile. You're welcome.</h4></div>
+        <div class="featureContainer"><img src="/assets/img/features/finger.png" alt="Single Click" class="featureImg">
+            <h3 class="featureTitle">Single-Click</h3>
+            <h4 class="featureText">Register once. Then apply to all hackathons with a single click.</h4></div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="copyright">Made with <img src="/assets/img/heart.png" alt="love" height="16px"> by 15 hackers from
+            across the planet. Contact us at <span><a href="mailto:hello@wolfbeacon.com" class="mailLink">hello@wolfbeacon.com</a></span>.
+        </div>
+        <div class="social">
+            <a href="https://www.facebook.com"><img src="/assets/img/facebook.png" alt="facebook" height="24px"></a>
+            <a href="https://www.twitter.com"><img src="/assets/img/twitter.png" alt="twitter" height="24px"></a>
+            <a class="" href="https://auth0.com/?utm_source=oss&utm_medium=gp&utm_campaign=oss"
+               target="_blank" alt="Single Sign On & Token Based Authentication - Auth0"><img width="100" height="35"
+                                                                                              alt="JWT Auth for open source projects"
+                                                                                              src="//cdn.auth0.com/oss/badges/a0-badge-light.png"/></a>
+        </div>
+    </div>
+</footer>
+
+<!--Include-->
 <script type="text/javascript" src="//www.gstatic.com/authtoolkit/js/gitkit.js"></script>
 <script type=text/javascript>
     window.google.identitytoolkit.signInButton(
-            '#navbar', // accepts any CSS selector
+            '#login-bar', // accepts any CSS selector
             {
-                widgetUrl: "https://wolfbeacon.herokuapp.com/oauth2callback",
+                widgetUrl: "https://wolfbeacon.herokuapp.com/oauth2callback?mode=select",
                 signOutUrl: "/logout?url=/"
             }
     );
 </script>
-<head>
-    <title>Hello User!</title>
-</head>
-<body>
-<a>User Panel</a>
-<div id="navbar"></div>
+
+
+<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script>
+<script type="text/javascript">
+    window.sr = ScrollReveal();
+    sr.reveal('.featureContainer',
+            {
+                delay: 150,
+                duration: 350,
+                scale: 1,
+                curve: 'cubic-bezier(.05,.82,0,.99)',
+                reset: 'true'
+            }, 100);
+</script>
 </body>
+
 </html>

@@ -22,55 +22,68 @@
     <meta name="twitter:title" content=" ">
     <meta name="twitter:description" content=" ">
     <meta name="twitter:image" content="/">
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/img/favicon/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/img/favicon/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/img/favicon/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-16x16.png" sizes="16x16" />
-    <meta name="application-name" content=" " />
-    <meta name="msapplication-TileColor" content="#EF5350" />
-    <meta name="msapplication-TileImage" content="/assets/img/favicon/mstile-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/img/favicon/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/img/favicon/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/img/favicon/apple-touch-icon-152x152.png"/>
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-16x16.png" sizes="16x16"/>
+    <meta name="application-name" content=" "/>
+    <meta name="msapplication-TileColor" content="#EF5350"/>
+    <meta name="msapplication-TileImage" content="/assets/img/favicon/mstile-144x144.png"/>
     <title> WolfBeacon || OSH </title>
-    <link rel="stylesheet" href="/assets/css/styles.css"> </head>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
 
 <body>
 <section class="cover">
     <div class="container">
-        <div class="logo">WOLFBEACON</div>
-        <div class="title">
-            <h1 id="fold">The Ultimate Platform for Hackathons</h1>
-            <h2 id="fold">A beautiful, mobile-first platform. Built by hackers, for hackers. Sign up for the beta today!</h2> </div>
-        <div class="stayUpdatedContainer" id="fold">
-            <form class="stayUpdated" action="https://wolfbeacon.herokuapp.com/api/v1/mail/" method="post" , id="mailingForm">
-                <input class="stayUpdatedInput" type="textbox" name="email" placeholder="somebody@example.com">
-                <button type = "submit" class="updateButton">STAY UPDATED</button> </form>
+        <div class="logo">
+            <span class="wolfbeacon-title">WOLFBEACON</span>
+            <a href="/oauth2callback?mode=select" class="login-btn">API Login</a>
         </div>
-        <div class="phones"> <img src="/assets/img/mobiles.png" alt="Previews of WolfBeacon mobile apps"> </div>
+        <div class="title">
+            <h1>The Ultimate Platform for Hackathons</h1>
+            <h2>A beautiful, mobile-first platform. Built by hackers, for hackers. Sign up for the beta today!</h2>
+        </div>
+        <div class="stayUpdatedContainer" id="fold">
+            <form class="stayUpdated" action="https://wolfbeacon.herokuapp.com/api/v1/mail/" method="post" ,
+                  id="mailingForm">
+                <input class="stayUpdatedInput" type="textbox" name="email" placeholder="somebody@example.com">
+                <button type="submit" class="updateButton">STAY UPDATED</button>
+            </form>
+        </div>
+        <div class="phones"><img src="/assets/img/mobiles.png" alt="Previews of WolfBeacon mobile apps"></div>
     </div>
 </section>
 <section class="features">
     <div class="container">
-        <div class="featureContainer"> <img src="/assets/img/features/globe.png" alt="Global" class="featureImg">
+        <div class="featureContainer"><img src="/assets/img/features/globe.png" alt="Global" class="featureImg">
             <h3 class="featureTitle">Global</h3>
-            <h4 class="featureText">View all hackathons happening across the world. Never miss a hackathon again.</h4> </div>
-        <div class="featureContainer"> <img src="/assets/img/features/iphone.png" alt="Mobile First" class="featureImg">
+            <h4 class="featureText">View all hackathons happening across the world. Never miss a hackathon again.</h4>
+        </div>
+        <div class="featureContainer"><img src="/assets/img/features/iphone.png" alt="Mobile First" class="featureImg">
             <h3 class="featureTitle">Mobile First</h3>
-            <h4 class="featureText">The world's very first hackathon platform on mobile. You're welcome.</h4> </div>
-        <div class="featureContainer"> <img src="/assets/img/features/finger.png" alt="Single Click" class="featureImg">
+            <h4 class="featureText">The world's very first hackathon platform on mobile. You're welcome.</h4></div>
+        <div class="featureContainer"><img src="/assets/img/features/finger.png" alt="Single Click" class="featureImg">
             <h3 class="featureTitle">Single-Click</h3>
-            <h4 class="featureText">Register once. Then apply to all hackathons with a single click.</h4> </div>
+            <h4 class="featureText">Register once. Then apply to all hackathons with a single click.</h4></div>
     </div>
 </section>
 <footer>
     <div class="container">
-        <div class="copyright">Made with <img src="/assets/img/heart.png" alt="love" height="16px"> by 15 hackers from across the planet. Contact us at <span><a href="mailto:hello@wolfbeacon.com" class="mailLink">hello@wolfbeacon.com</a></span>.</div>
+        <div class="copyright">Made with <img src="/assets/img/heart.png" alt="love" height="16px"> by 15 hackers from
+            across the planet. Contact us at <span><a href="mailto:hello@wolfbeacon.com" class="mailLink">hello@wolfbeacon.com</a></span>.
+        </div>
         <div class="social">
             <a href="https://www.facebook.com"><img src="/assets/img/facebook.png" alt="facebook" height="24px"></a>
             <a href="https://www.twitter.com"><img src="/assets/img/twitter.png" alt="twitter" height="24px"></a>
-            <a width="150" height="50" href="https://auth0.com/?utm_source=oss&utm_medium=gp&utm_campaign=oss" target="_blank" alt="Single Sign On & Token Based Authentication - Auth0"><img width="150" height="50" alt="JWT Auth for open source projects" src="//cdn.auth0.com/oss/badges/a0-badge-dark.png"/></a>
+            <a class="" href="https://auth0.com/?utm_source=oss&utm_medium=gp&utm_campaign=oss"
+               target="_blank" alt="Single Sign On & Token Based Authentication - Auth0"><img width="100" height="35"
+                                                                                              alt="JWT Auth for open source projects"
+                                                                                              src="//cdn.auth0.com/oss/badges/a0-badge-light.png"/></a>
         </div>
     </div>
 </footer>
