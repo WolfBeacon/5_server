@@ -66,7 +66,7 @@
 mvn jetty:run -Dorg.eclipse.jetty.annotations.maxWait=120`
 
 
-#####[Server Configuration Files](https://www.dropbox.com/s/hlr83gg9nn0t78b/wolfbeacon_5_server_config_files_priviliged.tar.gz?dl=0) (Only available to privileged members. Contact Wolfbeacon admin for info)
+#####[Server Configuration Files](https://www.dropbox.com/s/hlr83gg9nn0t78b/wolfbeacon_5_server_config_files_priviliged.tar.gz?dl=0) , [Local Configuration Files] (https://www.dropbox.com/s/hlr83gg9nn0t78b/wolfbeacon_5_server_config_files_priviliged.tar.gz?dl=0) (Both only available to privileged members. Contact Wolfbeacon admin for info)
 
 
 ##Working with the repository:
